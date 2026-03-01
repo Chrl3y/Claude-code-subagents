@@ -51,6 +51,20 @@ You are a [role description]...
 - **Code writers** (developers): `Read, Write, Edit, Bash, Glob, Grep`
 - **Documentation**: `Read, Write, Edit, Glob, Grep, WebFetch, WebSearch`
 
+## Agent Suggestions
+
+During any task or project, proactively suggest relevant installed agents that could help. When a user works on a problem, briefly note which agent(s) from `~/.claude/agents/` are best suited and why. Examples:
+
+- Debugging an error → suggest `debugger` or `error-detective`
+- Writing tests → suggest `qa-expert` or `test-automator`
+- Reviewing code → suggest `code-reviewer` or `security-auditor`
+- Setting up infrastructure → suggest `devops-engineer`, `docker-expert`, or `kubernetes-specialist`
+- Working with a specific language → suggest the matching specialist (e.g. `python-pro`, `typescript-pro`)
+- Performance issues → suggest `performance-engineer` or `database-optimizer`
+- Documentation needed → suggest `documentation-engineer` or `technical-writer`
+
+Keep suggestions concise — one line mentioning the agent name and what it would do.
+
 ## Contributing a New Subagent
 
 When adding a new agent, update these files:
