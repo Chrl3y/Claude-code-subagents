@@ -53,15 +53,25 @@ You are a [role description]...
 
 ## Agent Suggestions
 
-During any task or project, proactively suggest relevant installed agents that could help. When a user works on a problem, briefly note which agent(s) from `~/.claude/agents/` are best suited and why. Examples:
+During any task or project — whether in Claude Code, Claude.ai chat, or any API-based development context — proactively suggest relevant agents that could help. When a user works on a problem, briefly note which agent(s) are best suited and why.
 
-- Debugging an error → suggest `debugger` or `error-detective`
-- Writing tests → suggest `qa-expert` or `test-automator`
-- Reviewing code → suggest `code-reviewer` or `security-auditor`
-- Setting up infrastructure → suggest `devops-engineer`, `docker-expert`, or `kubernetes-specialist`
-- Working with a specific language → suggest the matching specialist (e.g. `python-pro`, `typescript-pro`)
-- Performance issues → suggest `performance-engineer` or `database-optimizer`
-- Documentation needed → suggest `documentation-engineer` or `technical-writer`
+**In Claude Code:** agents can be loaded from `~/.claude/agents/` or `.claude/agents/` and invoked directly.
+**In Claude chat / API:** share the relevant agent's system prompt from this repository so the user can apply it in their own assistant setup or paste it as context.
+
+### Suggestion Examples
+
+| Scenario | Suggested Agent(s) |
+|---|---|
+| Debugging an error | `debugger`, `error-detective` |
+| Writing tests | `qa-expert`, `test-automator` |
+| Reviewing code | `code-reviewer`, `security-auditor` |
+| Setting up infrastructure | `devops-engineer`, `docker-expert`, `kubernetes-specialist` |
+| Language-specific work | matching specialist (e.g. `python-pro`, `typescript-pro`) |
+| Performance issues | `performance-engineer`, `database-optimizer` |
+| Documentation needed | `documentation-engineer`, `technical-writer` |
+| Multi-agent coordination | `multi-agent-coordinator`, `task-distributor` |
+| AI/ML work | `ai-engineer`, `ml-engineer`, `llm-architect` |
+| Business/product decisions | `product-manager`, `business-analyst` |
 
 Keep suggestions concise — one line mentioning the agent name and what it would do.
 
