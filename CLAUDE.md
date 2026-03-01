@@ -93,3 +93,64 @@ Format for main README: `- [**agent-name**](path/to/agent.md) - Brief descriptio
 | Global | `~/.claude/agents/` | All projects |
 
 Project subagents take precedence over global ones with the same name.
+
+## How to Use These Agents in Your Projects
+
+### Option 1 — Claude Code CLI (Recommended)
+
+Copy any agent file into your project or global agents folder:
+
+```bash
+# Global (available in all your projects)
+cp categories/01-core-development/backend-developer.md ~/.claude/agents/
+
+# Project-scoped (only for this repo)
+cp categories/01-core-development/backend-developer.md .claude/agents/
+```
+
+Claude Code will automatically detect and invoke the agent based on context, or you can reference it explicitly in a prompt.
+
+### Option 2 — Claude.ai Chat
+
+1. Open the agent `.md` file from this repository.
+2. Copy everything **below** the YAML frontmatter (after the closing `---`).
+3. Paste it as the first message in a new Claude.ai conversation, or set it as a custom system prompt in a Project.
+
+### Option 3 — Claude API / Custom Integrations
+
+Use the agent body as the `system` parameter in your API call:
+
+```python
+import anthropic
+
+with open("categories/01-core-development/backend-developer.md") as f:
+    content = f.read()
+    # Strip YAML frontmatter
+    system_prompt = content.split("---", 2)[-1].strip()
+
+client = anthropic.Anthropic()
+response = client.messages.create(
+    model="claude-sonnet-4-6",
+    max_tokens=8096,
+    system=system_prompt,
+    messages=[{"role": "user", "content": "Your task here..."}]
+)
+```
+
+### Option 4 — Claude Code SDK (Agent-to-Agent)
+
+Spawn a subagent programmatically using the Claude Code Agent SDK:
+
+```python
+from claude_code_sdk import query, ClaudeCodeOptions
+
+options = ClaudeCodeOptions(system_prompt=system_prompt)
+async for message in query(prompt="Your task", options=options):
+    print(message)
+```
+
+### Tips
+
+- **Mix and match:** use a global general agent + project-scoped specialists per repo.
+- **Chain agents:** pipe the output of one agent (e.g. `data-engineer`) as input to another (e.g. `technical-writer`) to automate multi-step workflows.
+- **Override per project:** place a same-named agent in `.claude/agents/` to override the global version with project-specific instructions.
