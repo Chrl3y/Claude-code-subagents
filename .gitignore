@@ -13,5 +13,7 @@ build/
 *.egg-info/
 
 # Claude Code
-.claude/
+.claude/*
+!.claude/commands/
+!.claude/commands/**
 .claude_history

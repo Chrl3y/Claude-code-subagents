@@ -51,6 +51,11 @@ Performance specialist monitoring and optimizing agent systems. Expert in metric
 
 **Use when:** Monitoring agent performance, identifying bottlenecks, optimizing workflows, implementing metrics, or improving system efficiency.
 
+### [**project-continuity**](project-continuity.md) - Cross-platform context bridge
+Cross-platform continuity specialist maintaining seamless context between Claude.ai chat and Claude Code CLI. Manages CLAUDE.md, artifact registries, decision logs, and handoff documents so no work or context is lost when switching surfaces or sessions.
+
+**Use when:** Switching between Claude.ai chat and Claude Code, ending a session, starting fresh on an existing project, capturing architecture decisions with rationale, or generating a portable handoff so any Claude instance can resume the project immediately.
+
 ### [**task-distributor**](task-distributor.md) - Task allocation specialist
 Task distribution expert optimizing work allocation across agents. Masters load balancing, capability matching, and priority scheduling. Ensures efficient use of all available agents.
 
@@ -79,6 +84,7 @@ Workflow specialist designing and executing sophisticated AI workflows. Expert i
 | Distribute tasks | **task-distributor** |
 | Manage projects with AI agents | **[taskade](https://github.com/taskade/mcp)** |
 | Automate workflows | **workflow-orchestrator** |
+| Maintain context across chat/CLI | **project-continuity** |
 
 ## Common Orchestration Patterns
 
